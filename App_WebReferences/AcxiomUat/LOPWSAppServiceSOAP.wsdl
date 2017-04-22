@@ -1,0 +1,4351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wsappservice.lop.ws.acxiom.com.cn/" xmlns:ns1="http://ws.acxiom.com.cn/lop/wsappservice/" name="LOPWSAppServiceSOAP" targetNamespace="http://ws.acxiom.com.cn/lop/wsappservice/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema xmlns:tns="http://ws.acxiom.com.cn/lop/wsappservice/" targetNamespace="http://ws.acxiom.com.cn/lop/wsappservice/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Exception" type="tns:Exception" />
+      <xs:element name="SaveCommentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="activateUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:Customer" />
+            <xs:element name="smscode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="activateUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addNewEmember">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addNewEmemberBean">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:addNewEmemberDetails" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="apClubCheck" type="tns:apClubCheck" />
+      <xs:element name="apClubCheckResponse" type="tns:apClubCheckResponse" />
+      <xs:element name="apGiftOrdersRetrieve" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="uniqueID" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="apGiftOrdersRetrieveResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="apGiftOrder" type="tns:apGiftOrder" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="apGiftRedeem" nillable="true" type="tns:apGiftOrder" />
+      <xs:element name="apGiftRedeemResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="apGiftRetrieve" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="uniqueID" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="apGiftRetrieveResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="apGift" type="tns:apGift" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="applyTrial">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="trialRecord" type="tns:TrialRecord" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="applyTrialResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="appointmentRemind">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="giftDesc" type="xs:string" />
+            <xs:element name="type" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="appointmentRemindResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="baInformation" nillable="true" type="xs:anyType" />
+      <xs:element name="bindCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="openId" type="xs:string" />
+            <xs:element minOccurs="0" name="unionId" type="xs:string" />
+            <xs:element minOccurs="0" name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeEmail" type="tns:changeEmail" />
+      <xs:element name="changeEmailResponse" type="tns:changeEmailResponse" />
+      <xs:element name="changeEmailSendValidate" type="tns:changeEmailSendValidate" />
+      <xs:element name="changeEmailSendValidateResponse" type="tns:changeEmailSendValidateResponse" />
+      <xs:element name="changeMobile" type="tns:changeMobile" />
+      <xs:element name="changeMobileResponse" type="tns:changeMobileResponse" />
+      <xs:element name="changeMobileSms" type="tns:changeMobileSms" />
+      <xs:element name="changeMobileSmsResponse" type="tns:changeMobileSmsResponse" />
+      <xs:element name="changePassword">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="newPassword" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changePasswordByOld">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="oldPassword" type="xs:string" />
+            <xs:element name="newPassword" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changePasswordByOldResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changePasswordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkCustomerByMobile" type="tns:checkCustomerByMobile" />
+      <xs:element name="checkCustomerByMobileResponse" type="tns:checkCustomerByMobileResponse" />
+      <xs:element name="checkCustomerByOpenid" type="tns:checkCustomerByOpenid" />
+      <xs:element name="checkCustomerByOpenidResponse" type="tns:checkCustomerByOpenidResponse" />
+      <xs:element name="checkCustomerMoiveFlag" type="tns:checkCustomerMoiveFlag" />
+      <xs:element name="checkCustomerMoiveFlagResponse" type="tns:checkCustomerMoiveFlagResponse" />
+      <xs:element name="checkDraw">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="campaignId" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkDrawByMobile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkDrawByMobileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkDrawResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkInformationByMobile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkInformationByMobileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkOfflineUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkOfflineUser2Response">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="code" type="xs:string" />
+                  <xs:element name="errorMessage" type="xs:string" />
+                  <xs:element name="offlineUserFlag" type="xs:boolean" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkOfflineUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="code" type="xs:string" />
+            <xs:element name="errorMessage" type="xs:string" />
+            <xs:element name="offlineUserFlag" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkReferralMobile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="mobileList" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="openId" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="checkReferralMobileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="completeUserProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="completeUserProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deliveryAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="customerName" type="xs:string" />
+            <xs:element name="customerMobile" type="xs:string" />
+            <xs:element name="address" type="xs:string" />
+            <xs:element name="zipcode" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="drawCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cst_mobile" type="xs:string" />
+            <xs:element name="cst_id" type="xs:int" />
+            <xs:element name="drawTimes" type="xs:int" />
+            <xs:element name="purchaseRange" type="xs:int" />
+            <xs:element minOccurs="0" name="deliverName" type="xs:string" />
+            <xs:element minOccurs="0" name="prizetype" type="xs:string" />
+            <xs:element minOccurs="0" name="deliverAddress" type="xs:string" />
+            <xs:element name="movie_flag" type="xs:boolean" />
+            <xs:element minOccurs="0" name="zipcode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="drawSignIn">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="drawSignInResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="cst_mobile" type="xs:string" />
+                  <xs:element name="cst_id" type="xs:int" />
+                  <xs:element name="drawTimes" type="xs:int" />
+                  <xs:element name="purchaseRange" type="xs:int" />
+                  <xs:element minOccurs="0" name="deliverName" type="xs:string" />
+                  <xs:element minOccurs="0" name="prizetype" type="xs:string" />
+                  <xs:element minOccurs="0" name="deliverAddress" type="xs:string" />
+                  <xs:element name="movie_flag" type="xs:boolean" />
+                  <xs:element minOccurs="0" name="zipcode" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="drawStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="code" type="xs:string" />
+            <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+            <xs:element name="prizeTimes" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerBind">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerBindResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerBound">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerBoundBean">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:eCustomerBoundDetails" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerCampaign">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerCampaignResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerUnBind">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="openId" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="eCustomerUnBindResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findOrResetpasswordBySms">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="newpassword" type="xs:string" />
+            <xs:element name="validationCode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="findOrResetpasswordBySmsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="forgetpassword">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="emailAddress" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="forgetpasswordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generateValidationCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generateValidationCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getATVByMobile" type="tns:getATVByMobile" />
+      <xs:element name="getATVByMobileResponse" type="tns:getATVByMobileResponse" />
+      <xs:element name="getBAInformationRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBAInformationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="customerId" type="xs:string" />
+                  <xs:element name="spending" type="xs:int" />
+                  <xs:element name="frequency" type="xs:int" />
+                  <xs:element minOccurs="0" name="lastPurDate" type="xs:string" />
+                  <xs:element minOccurs="0" name="lastPurProd1" type="xs:string" />
+                  <xs:element minOccurs="0" name="lastPurProd2" type="xs:string" />
+                  <xs:element minOccurs="0" name="lastPurProd3" type="xs:string" />
+                  <xs:element minOccurs="0" name="likedProd1" type="xs:string" />
+                  <xs:element minOccurs="0" name="likedProd2" type="xs:string" />
+                  <xs:element minOccurs="0" name="likedProd3" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCountByMobile" type="tns:getCountByMobile" />
+      <xs:element name="getCountByMobileResponse" type="tns:getCountByMobileResponse" />
+      <xs:element name="getCustomerInformation">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="uniqueID" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCustomerInformationByMobile" type="tns:getCustomerInformationByMobile" />
+      <xs:element name="getCustomerInformationByMobileResponse" type="tns:getCustomerInformationByMobileResponse" />
+      <xs:element name="getCustomerInformationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:CustomerRedeemFlags" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCustomerRedeemFlags">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getCustomerRedeemFlagsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:CustomerRedeemFlag" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getGiftExchangeInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getGiftExchangeInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:GiftExchangeInfoBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getGuid">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getGuidResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:CheckGuidByMobileResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMobileByUniqueId" type="tns:getMobileByUniqueId" />
+      <xs:element name="getMobileByUniqueIdResponse" type="tns:getMobileByUniqueIdResponse" />
+      <xs:element name="getPointBalance">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPointBalanceBean" type="tns:getPointBalanceBean" />
+      <xs:element name="getPointBalanceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:getPointBalanceBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPromotionCodesByMobile" type="tns:getPromotionCodesByMobile" />
+      <xs:element name="getPromotionCodesByMobileResponse" type="tns:getPromotionCodesByMobileResponse" />
+      <xs:element name="getPurchaseRecords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getPurchaseRecordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:PurchaseRecordsBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getRecordsOfRedemption" nillable="true" type="xs:anyType" />
+      <xs:element name="getRecordsOfRedemptionResponse" nillable="true" type="xs:anyType" />
+      <xs:element name="getRecordsOfRedemptionWechat" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getRecordsOfRedemptionWechatResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:RedemptionHistory" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getRecordsOfTrail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getRecordsOfTrailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:TrialRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isHOBMemberByCardNo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="cardNo" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isHOBMemberByCardNoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:HOBMemberStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isHOBMemeberByProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="email" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="isHOBMemeberByProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:HOBMemberStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="linkWeibo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="password" type="xs:string" />
+            <xs:element minOccurs="0" name="type" type="xs:string" />
+            <xs:element minOccurs="0" name="weibo" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="linkWeiboResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="matchUser">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="matchUserResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="mergeCustomerProperties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="customerProperties" nillable="true" type="tns:CustomerProperty" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="mergeCustomerPropertiesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="orderGeneration">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="giftorder" type="tns:GiftOrder" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="orderGenerationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="orderGenerationWechat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="giftorder" type="tns:GiftOrder" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="orderGenerationWechatResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="receivedTrial">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="trialRecord" type="tns:TrialRecord" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="receivedTrialResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recognizeMember">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:string" />
+            <xs:element minOccurs="0" name="username" type="xs:string" />
+            <xs:element minOccurs="0" name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="email" type="xs:string" />
+            <xs:element minOccurs="0" name="memberNo" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recognizeMemberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recordAddressForGift" type="tns:recordAddressForGift" />
+      <xs:element name="recordAddressForGiftResponse" type="tns:recordAddressForGiftResponse" />
+      <xs:element name="recordDeliveryAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="address">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="customerId" type="xs:string" />
+                  <xs:element name="customerName" type="xs:string" />
+                  <xs:element name="customerMobile" type="xs:string" />
+                  <xs:element name="address" type="xs:string" />
+                  <xs:element name="zipcode" type="xs:string" />
+                  <xs:element name="sourceTag" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recordDeliveryAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recordDrawResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="cst_mobile" type="xs:string" />
+                  <xs:element name="cst_id" type="xs:int" />
+                  <xs:element name="drawTimes" type="xs:int" />
+                  <xs:element name="purchaseRange" type="xs:int" />
+                  <xs:element minOccurs="0" name="deliverName" type="xs:string" />
+                  <xs:element minOccurs="0" name="prizetype" type="xs:string" />
+                  <xs:element minOccurs="0" name="deliverAddress" type="xs:string" />
+                  <xs:element name="movie_flag" type="xs:boolean" />
+                  <xs:element minOccurs="0" name="zipcode" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recordDrawResultResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recordSMSLog">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="code" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recordSMSLogResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="register">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registerSendSms" type="tns:registerSendSms" />
+      <xs:element name="registerSendSmsResponse" type="tns:registerSendSmsResponse" />
+      <xs:element name="registerWithCode" type="tns:registerWithCode" />
+      <xs:element name="registerWithCodeResponse" type="tns:registerWithCodeResponse" />
+      <xs:element name="registerWithSource" type="tns:registerWithSource" />
+      <xs:element name="registerWithSourceResponse" type="tns:registerWithSourceResponse" />
+      <xs:element name="removeAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="addressId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="removeCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="resetPassword">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="type" type="xs:string" />
+            <xs:element minOccurs="0" name="info" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="resetPasswordResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="resetpasswordByEmail">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="emailAddress" type="xs:string" />
+            <xs:element name="validationCode" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="resetpasswordByEmailResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveAddresses">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveAddressesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCommentList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="commentType" type="xs:string" />
+            <xs:element minOccurs="0" name="pageNum" type="xs:string" />
+            <xs:element minOccurs="0" name="pageSize" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCommentListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:CommentPageList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCustomerBean">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:retrieveCustomerDetails" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCustomerProperties">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveCustomerPropertiesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:CustomerProperty" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveGiftOrder">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:string" />
+            <xs:element minOccurs="0" name="GiftorderId" type="xs:string" />
+            <xs:element minOccurs="0" name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveGiftOrderList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:string" />
+            <xs:element minOccurs="0" name="password" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveGiftOrderListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:giftOrderStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveGiftOrderListWechat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveGiftOrderListWechatResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:giftOrderStatus" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveGiftOrderResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:GiftOrder" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveMember">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveMemberResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Member" type="tns:Member" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveO2ODetailsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveO2ODetailsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:O2ODetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveOrder">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="orderId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveOrderResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:Order" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveOrders">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveOrdersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:Order" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePointBalance">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePointBalanceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePointDetails">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePointDetailsMRM">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element minOccurs="0" name="pageNum" type="xs:string" />
+            <xs:element minOccurs="0" name="pageSize" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePointDetailsMRMResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:PointDetailPageList" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePointDetailsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:PointDetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePoints">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePointsBean">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:retrievePointsDetails" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveProfileByCardNo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cardNo" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveProfileByCardNoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePurchaseDetailsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrievePurchaseDetailsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:PurchaseDetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveTrialDetailsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="retrieveTrialDetailsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="out" nillable="true" type="tns:TrialDetail" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="rvSignIn">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="name" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="rvSignInResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="cst_name" type="xs:string" />
+                  <xs:element name="cst_mobile" type="xs:string" />
+                  <xs:element name="cst_id" type="xs:int" />
+                  <xs:element name="register_days" type="xs:int" />
+                  <xs:element minOccurs="0" name="register_date" type="xs:string" />
+                  <xs:element minOccurs="0" name="first_sku" type="xs:string" />
+                  <xs:element minOccurs="0" name="max_amount_date" type="xs:string" />
+                  <xs:element name="max_amount" type="xs:double" />
+                  <xs:element name="total_points" type="xs:double" />
+                  <xs:element name="total_redeem_amount" type="xs:double" />
+                  <xs:element minOccurs="0" name="total_redeem_sku" type="xs:string" />
+                  <xs:element name="total_skin_amount" type="xs:double" />
+                  <xs:element minOccurs="0" name="total_skin_percent" type="xs:string" />
+                  <xs:element name="total_makeup_amount" type="xs:double" />
+                  <xs:element minOccurs="0" name="total_makeup_percent" type="xs:string" />
+                  <xs:element name="face_step_num" type="xs:int" />
+                  <xs:element name="toner_step_num" type="xs:int" />
+                  <xs:element name="essence_num" type="xs:int" />
+                  <xs:element name="moisturizing_step_num" type="xs:int" />
+                  <xs:element name="eyes_num" type="xs:int" />
+                  <xs:element name="UV_num" type="xs:int" />
+                  <xs:element name="mask_num" type="xs:int" />
+                  <xs:element name="mask_amount" type="xs:double" />
+                  <xs:element minOccurs="0" name="mask_percent" type="xs:string" />
+                  <xs:element name="eyes_amount" type="xs:double" />
+                  <xs:element minOccurs="0" name="eyes_percent" type="xs:string" />
+                  <xs:element name="lip_amount" type="xs:double" />
+                  <xs:element minOccurs="0" name="lip_percent" type="xs:string" />
+                  <xs:element name="fingernail_amount" type="xs:double" />
+                  <xs:element minOccurs="0" name="fingernail_percent" type="xs:string" />
+                  <xs:element name="mask_buy_num" type="xs:int" />
+                  <xs:element name="eyes_buy_num" type="xs:int" />
+                  <xs:element name="lip_buy_num" type="xs:int" />
+                  <xs:element name="fingernail_buy_num" type="xs:int" />
+                  <xs:element name="lastpurbyday" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="address" type="tns:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveComment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="comment" type="tns:comment" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="saveCommentResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCouponSMS">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="UniqueID" type="xs:string" />
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element name="content" type="xs:string" />
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendCouponSMSResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendMovieCodeOrAddPoints" type="tns:sendMovieCodeOrAddPoints" />
+      <xs:element name="sendMovieCodeOrAddPointsResponse" type="tns:sendMovieCodeOrAddPointsResponse" />
+      <xs:element name="sendVerificationCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sendVerificationCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:VerificationCode" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="signIn">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="signInResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="subscribeNewsletter">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="emailAddress" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="subscribeNewsletterResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="unBindCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="openId" type="xs:string" />
+            <xs:element name="unionId" type="xs:string" />
+            <xs:element minOccurs="0" name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAddress">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="password" type="xs:string" />
+            <xs:element name="address" type="tns:Address" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateAddressResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateDrawStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="cst_id" type="xs:int" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateDrawStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="code" type="xs:string" />
+                  <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+                  <xs:element name="prizeTimes" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateInventory">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateInventoryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="inventoryList" nillable="true" type="tns:Inventory" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updatePoints">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customerId" type="xs:string" />
+            <xs:element name="points" type="xs:int" />
+            <xs:element name="password" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updatePointsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateProfile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:Customer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateProfileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateQQWeibo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:QQCustomer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateQQWeiboResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateSinaWeibo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:SinaCustomer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateSinaWeiboResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="valentineSegmentInformation" type="tns:valentineSegmentInformation" />
+      <xs:element name="valentineSegmentInformationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="out" type="tns:ValentineResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validateAPMemOrNonAPMem">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+            <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validateAPMemOrNonAPMemResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="flag" type="xs:boolean" />
+                  <xs:element minOccurs="0" name="customerId" type="xs:string" />
+                  <xs:element minOccurs="0" name="customerName" type="xs:string" />
+                  <xs:element minOccurs="0" name="customerMobile" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validateMemOrNonMem" type="tns:validateMemOrNonMem" />
+      <xs:element name="validateMemOrNonMemResponse" type="tns:validateMemOrNonMemResponse" />
+      <xs:element name="validateMemOrProspectsSendSms">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mobile" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validateMemOrProspectsSendSmsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="validateResult" nillable="true" type="xs:anyType" />
+      <xs:element name="wechat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="customer" type="tns:WechatCustomer" />
+            <xs:element name="sourceTag" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="wechatResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="wsEntityResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Customer">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="firstname" type="xs:string" />
+          <xs:element minOccurs="0" name="lastname" type="xs:string" />
+          <xs:element minOccurs="0" name="salutation" type="xs:string" />
+          <xs:element minOccurs="0" name="birthday" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="nickname" type="xs:string" />
+          <xs:element minOccurs="0" name="customertype" type="xs:string" />
+          <xs:element minOccurs="0" name="cardno" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="addresses" nillable="true" type="tns:Address" />
+          <xs:element minOccurs="0" name="totalPoints" type="xs:int" />
+          <xs:element minOccurs="0" name="isProfileComplete" type="xs:boolean" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+          <xs:element minOccurs="0" name="uniqueID" type="xs:string" />
+          <xs:element minOccurs="0" name="PointsOfMonth" type="xs:int" />
+          <xs:element minOccurs="0" name="url" type="xs:string" />
+          <xs:element minOccurs="0" name="PrvId" type="xs:int" />
+          <xs:element minOccurs="0" name="CtyId" type="xs:int" />
+          <xs:element name="apFlag" type="xs:boolean" />
+          <xs:element name="apRoutineFlag" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Address">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element minOccurs="0" name="addressId" type="xs:string" />
+          <xs:element name="firstName" type="xs:string" />
+          <xs:element name="lastName" type="xs:string" />
+          <xs:element name="province" type="xs:string" />
+          <xs:element name="city" type="xs:string" />
+          <xs:element name="address1" type="xs:string" />
+          <xs:element minOccurs="0" name="address2" type="xs:string" />
+          <xs:element name="zip" type="xs:string" />
+          <xs:element minOccurs="0" name="phone" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneExt" type="xs:string" />
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element name="defaultAddress" type="xs:boolean" />
+          <xs:element name="cityID" type="xs:int" />
+          <xs:element name="provinceID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WSNewResponse">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+          <xs:element minOccurs="0" name="trialNum" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WSResponse">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CustomerProperty">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element minOccurs="0" name="key" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PointDetail">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element minOccurs="0" name="detail" type="xs:string" />
+          <xs:element name="point" type="xs:double" />
+          <xs:element name="date" type="xs:dateTime" />
+          <xs:element name="source" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Order">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element name="orderId" type="xs:string" />
+          <xs:element name="date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="orderNo" type="xs:string" />
+          <xs:element minOccurs="0" name="orderStatus" type="xs:string" />
+          <xs:element name="subTotal" type="xs:double" />
+          <xs:element name="otherTotal" type="xs:double" />
+          <xs:element name="discount" type="xs:double" />
+          <xs:element name="totalAmount" type="xs:double" />
+          <xs:element name="purchaseType" type="xs:string" />
+          <xs:element name="payType" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingMemo" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="tns:Address" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="orderItems" nillable="true" type="tns:OrderItem" />
+          <xs:element minOccurs="0" name="points" type="xs:double" />
+          <xs:element minOccurs="0" name="InvoiceTitle" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderItem">
+        <xs:sequence>
+          <xs:element name="orderId" type="xs:string" />
+          <xs:element name="itemId" type="xs:string" />
+          <xs:element minOccurs="0" name="itemName" type="xs:string" />
+          <xs:element name="unitPrice" type="xs:double" />
+          <xs:element name="quantity" type="xs:int" />
+          <xs:element name="subTotal" type="xs:double" />
+          <xs:element minOccurs="0" name="sequnce" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="HOBMemberStatus">
+        <xs:sequence>
+          <xs:element name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+          <xs:element name="code" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Member">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="memberNo" type="xs:string" />
+          <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="orderList" nillable="true" type="tns:GiftOrder" />
+          <xs:element minOccurs="0" name="validPoints" type="xs:double" />
+          <xs:element minOccurs="0" name="isValid" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GiftOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="orderNo" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerId" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="items" nillable="true" type="tns:GiftOrderItem" />
+          <xs:element minOccurs="0" name="delivery" type="tns:DeliveryInformation" />
+          <xs:element minOccurs="0" name="orderAmount" type="xs:double" />
+          <xs:element minOccurs="0" name="orderDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GiftOrderItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+          <xs:element minOccurs="0" name="quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="unitPrice" type="xs:double" />
+          <xs:element minOccurs="0" name="amount" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DeliveryInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="addressId" type="xs:string" />
+          <xs:element minOccurs="0" name="Title" type="xs:string" />
+          <xs:element minOccurs="0" name="deliveryNotes" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverName" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverProvince" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverCity" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverZip" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverPhone" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverMobile" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Inventory">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+          <xs:element minOccurs="0" name="quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTime" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="giftOrderStatus">
+        <xs:sequence>
+          <xs:element name="orderStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="giftOrder" type="tns:GiftOrder" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RedemptionHistory">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element name="productName" type="xs:string" />
+          <xs:element name="redemptionDt" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TrialRecord">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element name="productId" type="xs:string" />
+          <xs:element name="campaignId" type="xs:string" />
+          <xs:element minOccurs="0" name="isVIP" type="xs:boolean" />
+          <xs:element minOccurs="0" name="applyDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="receivedFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="receivedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="xs:string" />
+          <xs:element minOccurs="0" name="zipcode" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SinaCustomer">
+        <xs:sequence>
+          <xs:element name="scs_code" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="screen_name" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="location" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="url" type="xs:string" />
+          <xs:element minOccurs="0" name="profile_image_url" type="xs:string" />
+          <xs:element minOccurs="0" name="gender" type="xs:string" />
+          <xs:element minOccurs="0" name="created_at" type="xs:string" />
+          <xs:element minOccurs="0" name="avatar_large" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="QQCustomer">
+        <xs:sequence>
+          <xs:element name="qcs_code" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="birth_day" type="xs:string" />
+          <xs:element minOccurs="0" name="birth_month" type="xs:string" />
+          <xs:element minOccurs="0" name="birth_year" type="xs:string" />
+          <xs:element minOccurs="0" name="city_code" type="xs:string" />
+          <xs:element minOccurs="0" name="country_code" type="xs:string" />
+          <xs:element minOccurs="0" name="head" type="xs:string" />
+          <xs:element minOccurs="0" name="homecity_code" type="xs:string" />
+          <xs:element minOccurs="0" name="homecountry_code" type="xs:string" />
+          <xs:element minOccurs="0" name="homepage" type="xs:string" />
+          <xs:element minOccurs="0" name="homeprovince_code" type="xs:string" />
+          <xs:element minOccurs="0" name="hometown_code" type="xs:string" />
+          <xs:element minOccurs="0" name="industry_code" type="xs:string" />
+          <xs:element minOccurs="0" name="introduction" type="xs:string" />
+          <xs:element minOccurs="0" name="location" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="nick" type="xs:string" />
+          <xs:element minOccurs="0" name="province_code" type="xs:string" />
+          <xs:element minOccurs="0" name="regtime" type="xs:string" />
+          <xs:element minOccurs="0" name="sex" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeMobileSms">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerId" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeMobileSmsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeMobile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerId" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeMobileResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeEmailSendValidate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerId" type="xs:string" />
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeEmailSendValidateResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeEmail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customerId" type="xs:string" />
+          <xs:element minOccurs="0" name="email" type="xs:string" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeEmailResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerSendSms">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerSendSmsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:WSResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerWithCode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerWithCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="comment">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="commentType" type="xs:string" />
+          <xs:element name="commentLevel" type="xs:string" />
+          <xs:element name="commentDesc" type="xs:string" />
+          <xs:element name="commentDt" type="xs:dateTime" />
+          <xs:element name="url" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CommentPageList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pageNum" type="xs:string" />
+          <xs:element minOccurs="0" name="pageSize" type="xs:string" />
+          <xs:element minOccurs="0" name="pageTotal" type="xs:string" />
+          <xs:element minOccurs="0" name="totalNum" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="comment" nillable="true" type="tns:comment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VerificationCode">
+        <xs:sequence>
+          <xs:element name="smsCode" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerWithSource">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+          <xs:element minOccurs="0" name="source" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="registerWithSourceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:WSNewResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateMemOrNonMem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="campaign" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateMemOrNonMemResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="flag" type="xs:boolean" />
+                <xs:element minOccurs="0" name="customerId" type="xs:string" />
+                <xs:element minOccurs="0" name="customerName" type="xs:string" />
+                <xs:element minOccurs="0" name="customerMobile" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="valentineSegmentInformation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="campaign" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValentineResult">
+        <xs:sequence>
+          <xs:element name="segment" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PurchaseRecordsBean">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="purchaseRecords" nillable="true" type="tns:PurchaseRecord" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PurchaseRecord">
+        <xs:sequence>
+          <xs:element name="purchaseTime" type="xs:string" />
+          <xs:element minOccurs="0" name="counter" type="xs:string" />
+          <xs:element name="amount" type="xs:float" />
+          <xs:element minOccurs="0" name="coupon" type="xs:string" />
+          <xs:element name="product" type="xs:string" />
+          <xs:element minOccurs="0" name="point" type="xs:float" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GiftExchangeInfoBean">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="giftExchangeInfos" nillable="true" type="tns:giftExchangeInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="giftExchangeInfo">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="exchangeTime" type="xs:string" />
+          <xs:element minOccurs="0" name="shippingCode" type="xs:string" />
+          <xs:element name="shippingStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="shippingCompany" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="eCustomerBoundDetails">
+        <xs:sequence>
+          <xs:element name="UniqueID" type="xs:string" />
+          <xs:element minOccurs="0" name="cardNum" type="xs:string" />
+          <xs:element minOccurs="0" name="cardLevel" type="xs:string" />
+          <xs:element name="isSucceeded" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveCustomerDetails">
+        <xs:sequence>
+          <xs:element name="UniqueID" type="xs:string" />
+          <xs:element minOccurs="0" name="cardNum" type="xs:string" />
+          <xs:element minOccurs="0" name="cardLevel" type="xs:string" />
+          <xs:element name="isExists" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addNewEmemberDetails">
+        <xs:sequence>
+          <xs:element name="isSucceeded" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ErrorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrievePointsDetails">
+        <xs:sequence>
+          <xs:element name="UniqueID" type="xs:string" />
+          <xs:element name="totalPoints" type="xs:double" />
+          <xs:element name="isExists" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckGuidByMobileResponse">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="guid" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPointBalanceBean">
+        <xs:sequence>
+          <xs:element name="returnCode" type="xs:string" />
+          <xs:element name="pointBalance" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PurchaseDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="skuDesc" type="xs:string" />
+          <xs:element minOccurs="0" name="purDt" type="xs:dateTime" />
+          <xs:element name="skuQty" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TrialDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="skuDesc" type="xs:string" />
+          <xs:element name="trialDt" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="O2ODetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="O2OCampaignName" type="xs:string" />
+          <xs:element name="campaignDt" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CustomerRedeemFlag">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element name="apFlag" type="xs:boolean" />
+          <xs:element name="apRoutineFlag" type="xs:boolean" />
+          <xs:element name="vipFlag" type="xs:boolean" />
+          <xs:element name="fleetFlag" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CustomerRedeemFlags">
+        <xs:sequence>
+          <xs:element name="uniqueId" type="xs:string" />
+          <xs:element name="vipFlag" type="xs:boolean" />
+          <xs:element name="fleetFlag" type="xs:boolean" />
+          <xs:element name="apFlag" type="xs:boolean" />
+          <xs:element name="apRoutineFlag" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkCustomerMoiveFlag">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uniqueID" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkCustomerMoiveFlagResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="recordAddressForGift">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uniqueID" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="address" type="xs:string" />
+          <xs:element minOccurs="0" name="zip" type="xs:string" />
+          <xs:element minOccurs="0" name="prizeType" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="recordAddressForGiftResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendMovieCodeOrAddPoints">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uniqueID" type="xs:string" />
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="prizeType" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendMovieCodeOrAddPointsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:AddPointsResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AddPointsResult">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="receiveCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="apClubCheck">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="apClubCheckResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="code" type="xs:string" />
+                <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+                <xs:element minOccurs="0" name="customerId" type="xs:string" />
+                <xs:element minOccurs="0" name="name" type="xs:string" />
+                <xs:element minOccurs="0" name="mobile" type="xs:string" />
+                <xs:element name="points" type="xs:double" />
+                <xs:element minOccurs="0" name="address" type="xs:string" />
+                <xs:element minOccurs="0" name="zip" type="xs:string" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PointDetailPageList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pageNum" type="xs:string" />
+          <xs:element minOccurs="0" name="pageSize" type="xs:string" />
+          <xs:element minOccurs="0" name="pageTotal" type="xs:string" />
+          <xs:element minOccurs="0" name="totalNum" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="pointDetail" nillable="true" type="tns:PointDetail" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="apGiftOrder">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" />
+          <xs:element name="gftId" type="xs:int" />
+          <xs:element name="gftCode" type="xs:string" />
+          <xs:element minOccurs="0" name="gftRedeemDt" type="xs:string" />
+          <xs:element minOccurs="0" name="deliveryName" type="xs:string" />
+          <xs:element minOccurs="0" name="deliveryMobile" type="xs:string" />
+          <xs:element minOccurs="0" name="deliveryAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="deliveryZip" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="apGift">
+        <xs:sequence>
+          <xs:element name="gftId" type="xs:int" />
+          <xs:element name="gftCode" type="xs:string" />
+          <xs:element name="gftRedeemPoint" type="xs:double" />
+          <xs:element minOccurs="0" name="gftStartDT" type="xs:string" />
+          <xs:element minOccurs="0" name="gftEndDT" type="xs:string" />
+          <xs:element name="gftInventory" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WechatCustomer">
+        <xs:sequence>
+          <xs:element name="openid" type="xs:string" />
+          <xs:element minOccurs="0" name="nickname" type="xs:string" />
+          <xs:element minOccurs="0" name="sex" type="xs:string" />
+          <xs:element minOccurs="0" name="province" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="country" type="xs:string" />
+          <xs:element minOccurs="0" name="headimgurl" type="xs:string" />
+          <xs:element minOccurs="0" name="privilege" type="xs:string" />
+          <xs:element minOccurs="0" name="unionid" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPromotionCodesByMobile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getPromotionCodesByMobileResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:PromotionCodesResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PromotionCodesResponse">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="promotionCodes" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMobileByUniqueId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="uniqueId" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getMobileByUniqueIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCountByMobile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCountByMobileResponse">
+        <xs:sequence>
+          <xs:element name="out" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getATVByMobile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getATVByMobileResponse">
+        <xs:sequence>
+          <xs:element name="out" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCustomerInformationByMobile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getCustomerInformationByMobileResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:CustomerInformation" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CustomerInformation">
+        <xs:sequence>
+          <xs:element name="consumer_id" type="xs:int" />
+          <xs:element name="member_type" type="xs:string" />
+          <xs:element name="date" type="xs:string" />
+          <xs:element name="days" type="xs:int" />
+          <xs:element minOccurs="0" name="spending" type="xs:string" />
+          <xs:element minOccurs="0" name="favorite_product" type="xs:string" />
+          <xs:element minOccurs="0" name="attend_member_day" type="xs:string" />
+          <xs:element name="attend_times" type="xs:int" />
+          <xs:element minOccurs="0" name="member_day_spending" type="xs:string" />
+          <xs:element minOccurs="0" name="pure_MT" type="xs:string" />
+          <xs:element minOccurs="0" name="atv" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkCustomerByOpenid">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UniqueID" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkCustomerByOpenidResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:CheckCustomerResponse" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CheckCustomerResponse">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="info" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkCustomerByMobile">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mobile" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceTag" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkCustomerByMobileResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="out" type="tns:CheckCustomerResponse" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="LOPWSAppServiceSOAP_retrievePurchaseDetails">
+    <part name="parameters" element="ns1:retrievePurchaseDetailsRequest" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkInformationByMobile">
+    <part name="parameters" element="ns1:checkInformationByMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveProfileByCardNoResponse">
+    <part name="parameters" element="ns1:retrieveProfileByCardNoResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendVerificationCode">
+    <part name="parameters" element="ns1:sendVerificationCode" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCustomerInformationByMobile">
+    <part name="parameters" element="ns1:getCustomerInformationByMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getRecordsOfRedemption">
+    <part name="parameters" element="ns1:getRecordsOfRedemption" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePointBalanceResponse">
+    <part name="parameters" element="ns1:retrievePointBalanceResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_validateMemOrProspectsSendSmsResponse">
+    <part name="parameters" element="ns1:validateMemOrProspectsSendSmsResponse" />
+  </message>
+  <message name="Exception">
+    <part name="Exception" element="ns1:Exception" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getPromotionCodesByMobile">
+    <part name="parameters" element="ns1:getPromotionCodesByMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveCustomerProperties">
+    <part name="parameters" element="ns1:retrieveCustomerProperties" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_registerWithCode">
+    <part name="parameters" element="ns1:registerWithCode" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkDrawByMobileResponse">
+    <part name="parameters" element="ns1:checkDrawByMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getGuidResponse">
+    <part name="parameters" element="ns1:getGuidResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_valentineSegmentInformation">
+    <part name="parameters" element="ns1:valentineSegmentInformation" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeMobileSms">
+    <part name="parameters" element="ns1:changeMobileSms" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_orderGenerationWechat">
+    <part name="parameters" element="ns1:orderGenerationWechat" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCustomerRedeemFlagsResponse">
+    <part name="parameters" element="ns1:getCustomerRedeemFlagsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_completeUserProfile">
+    <part name="parameters" element="ns1:completeUserProfile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveGiftOrder">
+    <part name="parameters" element="ns1:retrieveGiftOrder" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getRecordsOfTrailResponse">
+    <part name="parameters" element="ns1:getRecordsOfTrailResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_signIn">
+    <part name="parameters" element="ns1:signIn" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCustomerInformation">
+    <part name="parameters" element="ns1:getCustomerInformation" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_rvSignIn">
+    <part name="parameters" element="ns1:rvSignIn" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_validateMemOrProspectsSendSms">
+    <part name="parameters" element="ns1:validateMemOrProspectsSendSms" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCustomerRedeemFlags">
+    <part name="parameters" element="ns1:getCustomerRedeemFlags" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_removeAddress">
+    <part name="parameters" element="ns1:removeAddress" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateWechatResponse">
+    <part name="parameters" element="ns1:wechatResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeEmailSendValidateResponse">
+    <part name="parameters" element="ns1:changeEmailSendValidateResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getATVByMobileResponse">
+    <part name="parameters" element="ns1:getATVByMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_appointmentRemind">
+    <part name="parameters" element="ns1:appointmentRemind" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_removeCustomerResponse">
+    <part name="parameters" element="ns1:removeCustomerResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_rvSignInResponse">
+    <part name="parameters" element="ns1:rvSignInResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateSinaWeiboResponse">
+    <part name="parameters" element="ns1:updateSinaWeiboResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_mergeCustomerPropertiesResponse">
+    <part name="parameters" element="ns1:mergeCustomerPropertiesResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeEmailSendValidate">
+    <part name="parameters" element="ns1:changeEmailSendValidate" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_resetPassword">
+    <part name="parameters" element="ns1:resetPassword" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveCommentList">
+    <part name="parameters" element="ns1:retrieveCommentList" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerUnBindResponse">
+    <part name="parameters" element="ns1:eCustomerUnBindResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveCommentListResponse">
+    <part name="parameters" element="ns1:retrieveCommentListResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveMember">
+    <part name="parameters" element="ns1:retrieveMember" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getMobileByUniqueIdResponse">
+    <part name="parameters" element="ns1:getMobileByUniqueIdResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_signInResponse">
+    <part name="parameters" element="ns1:signInResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getBAInformationResponse">
+    <part name="parameters" element="ns1:getBAInformationResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerBoundResponse">
+    <part name="parameters" element="ns1:eCustomerBoundBean" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_registerWithSourceResponse">
+    <part name="parameters" element="ns1:registerWithSourceResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_registerResponse">
+    <part name="parameters" element="ns1:registerResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_validateMemOrNonMemResponse">
+    <part name="parameters" element="ns1:validateMemOrNonMemResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_unBindCustomerResponse">
+    <part name="parameters" element="ns1:wsEntityResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apGiftOrdersRetrieve">
+    <part name="parameters" element="ns1:apGiftOrdersRetrieve" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePointDetails">
+    <part name="parameters" element="ns1:retrievePointDetails" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changePasswordByOld">
+    <part name="parameters" element="ns1:changePasswordByOld" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerBind">
+    <part name="parameters" element="ns1:eCustomerBind" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveGiftOrderListWechatResponse">
+    <part name="parameters" element="ns1:retrieveGiftOrderListWechatResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkInformationByMobileResponse">
+    <part name="parameters" element="ns1:checkInformationByMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordAddressForGift">
+    <part name="parameters" element="ns1:recordAddressForGift" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCustomerInformationResponse">
+    <part name="parameters" element="ns1:getCustomerInformationResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerBindResponse">
+    <part name="parameters" element="ns1:eCustomerBindResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkCustomerByMobile">
+    <part name="parameters" element="ns1:checkCustomerByMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getPointBalance">
+    <part name="parameters" element="ns1:getPointBalance" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveMemberResponse">
+    <part name="parameters" element="ns1:retrieveMemberResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_subscribeNewsletterResponse">
+    <part name="parameters" element="ns1:subscribeNewsletterResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apGiftRetrieve">
+    <part name="parameters" element="ns1:apGiftRetrieve" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCountByMobileResponse">
+    <part name="parameters" element="ns1:getCountByMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updatePoints">
+    <part name="parameters" element="ns1:updatePoints" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendMovieCodeOrAddPointsResponse">
+    <part name="parameters" element="ns1:sendMovieCodeOrAddPointsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apClubCheckResponse">
+    <part name="parameters" element="ns1:apClubCheckResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendCodeResponse">
+    <part name="parameters" element="ns1:sendCodeResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getBAInformation">
+    <part name="parameters" element="ns1:getBAInformationRequest" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getPurchaseRecords">
+    <part name="parameters" element="ns1:getPurchaseRecords" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_applyTrial">
+    <part name="parameters" element="ns1:applyTrial" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_saveComment">
+    <part name="parameters" element="ns1:saveComment" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_validateAPMemOrNonAPMem">
+    <part name="parameters" element="ns1:validateAPMemOrNonAPMem" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getRecordsOfTrail">
+    <part name="parameters" element="ns1:getRecordsOfTrail" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_isHOBMemeberByProfile">
+    <part name="parameters" element="ns1:isHOBMemeberByProfile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkCustomerMoiveFlagResponse">
+    <part name="parameters" element="ns1:checkCustomerMoiveFlagResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveProfileResponse">
+    <part name="parameters" element="ns1:retrieveProfileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_orderGenerationResponse">
+    <part name="parameters" element="ns1:orderGenerationResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeEmailResponse">
+    <part name="parameters" element="ns1:changeEmailResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_receivedTrialResponse">
+    <part name="parameters" element="ns1:receivedTrialResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordSMSLogResponse">
+    <part name="parameters" element="ns1:recordSMSLogResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveGiftOrderResponse">
+    <part name="parameters" element="ns1:retrieveGiftOrderResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apGiftRedeemResponse">
+    <part name="parameters" element="ns1:apGiftRedeemResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveOrdersResponse">
+    <part name="parameters" element="ns1:retrieveOrdersResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveOrderResponse">
+    <part name="parameters" element="ns1:retrieveOrderResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePoints">
+    <part name="parameters" element="ns1:retrievePoints" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveCustomer">
+    <part name="parameters" element="ns1:retrieveCustomer" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recognizeMember">
+    <part name="parameters" element="ns1:recognizeMember" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_appointmentRemindResponse">
+    <part name="parameters" element="ns1:appointmentRemindResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCountByMobile">
+    <part name="parameters" element="ns1:getCountByMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateProfileResponse">
+    <part name="parameters" element="ns1:updateProfileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_findOrResetpasswordBySmsResponse">
+    <part name="parameters" element="ns1:findOrResetpasswordBySmsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerCampaignResponse">
+    <part name="parameters" element="ns1:eCustomerCampaignResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_unBindCustomer">
+    <part name="parameters" element="ns1:unBindCustomer" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePointsResponse">
+    <part name="parameters" element="ns1:retrievePointsBean" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_bindCustomerResponse">
+    <part name="parameters" element="ns1:wsEntityResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_subscribeNewsletter">
+    <part name="parameters" element="ns1:subscribeNewsletter" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateQQWeibo">
+    <part name="parameters" element="ns1:updateQQWeibo" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordDeliveryAddressResponse">
+    <part name="parameters" element="ns1:recordDeliveryAddressResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkOfflineUserResponse">
+    <part name="parameters" element="ns1:checkOfflineUser2Response" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendMovieCodeOrAddPoints">
+    <part name="parameters" element="ns1:sendMovieCodeOrAddPoints" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateInventory">
+    <part name="parameters" element="ns1:updateInventory" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateSinaWeibo">
+    <part name="parameters" element="ns1:updateSinaWeibo" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveGiftOrderList">
+    <part name="parameters" element="ns1:retrieveGiftOrderList" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apGiftRedeem">
+    <part name="parameters" element="ns1:apGiftRedeem" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_forgetpasswordResponse">
+    <part name="parameters" element="ns1:forgetpasswordResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getRecordsOfRedemptionResponse">
+    <part name="parameters" element="ns1:getRecordsOfRedemptionResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_saveAddressResponse">
+    <part name="parameters" element="ns1:saveAddressResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveOrders">
+    <part name="parameters" element="ns1:retrieveOrders" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getGuid">
+    <part name="parameters" element="ns1:getGuid" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_generateValidationCodeResponse">
+    <part name="parameters" element="ns1:generateValidationCodeResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_validateMemOrNonMem">
+    <part name="parameters" element="ns1:validateMemOrNonMem" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveCustomerResponse">
+    <part name="parameters" element="ns1:retrieveCustomerBean" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getGiftExchangeInfo">
+    <part name="parameters" element="ns1:getGiftExchangeInfo" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordDrawResult">
+    <part name="parameters" element="ns1:recordDrawResult" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateQQWeiboResponse">
+    <part name="parameters" element="ns1:updateQQWeiboResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveProfile">
+    <part name="parameters" element="ns1:retrieveProfile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerCampaign">
+    <part name="parameters" element="ns1:eCustomerCampaign" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendVerificationCodeResponse">
+    <part name="parameters" element="ns1:sendVerificationCodeResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveO2ODetailsResponse">
+    <part name="parameters" element="ns1:retrieveO2ODetailsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePointDetailsMRM">
+    <part name="parameters" element="ns1:retrievePointDetailsMRM" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getATVByMobile">
+    <part name="parameters" element="ns1:getATVByMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkOfflineUser">
+    <part name="parameters" element="ns1:checkOfflineUser" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePointDetailsResponse">
+    <part name="parameters" element="ns1:retrievePointDetailsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_findOrResetpasswordBySms">
+    <part name="parameters" element="ns1:findOrResetpasswordBySms" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkDraw">
+    <part name="parameters" element="ns1:checkDraw" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_removeAddressResponse">
+    <part name="parameters" element="ns1:removeAddressResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_register">
+    <part name="parameters" element="ns1:register" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_registerSendSms">
+    <part name="parameters" element="ns1:registerSendSms" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_registerWithSource">
+    <part name="parameters" element="ns1:registerWithSource" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateProfile">
+    <part name="parameters" element="ns1:updateProfile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkReferralMobile">
+    <part name="parameters" element="ns1:checkReferralMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_resetpasswordByEmail">
+    <part name="parameters" element="ns1:resetpasswordByEmail" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getGiftExchangeInfoResponse">
+    <part name="parameters" element="ns1:getGiftExchangeInfoResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_generateValidationCode">
+    <part name="parameters" element="ns1:generateValidationCode" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_activateUserResponse">
+    <part name="parameters" element="ns1:activateUserResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_matchUser">
+    <part name="parameters" element="ns1:matchUser" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveTrialDetails">
+    <part name="parameters" element="ns1:retrieveTrialDetailsRequest" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changePasswordResponse">
+    <part name="parameters" element="ns1:changePasswordResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_linkWeiboResponse">
+    <part name="parameters" element="ns1:linkWeiboResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_completeUserProfileResponse">
+    <part name="parameters" element="ns1:completeUserProfileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordDeliveryAddress">
+    <part name="parameters" element="ns1:recordDeliveryAddress" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendCouponSMS">
+    <part name="parameters" element="ns1:sendCouponSMS" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_saveCommentResponse">
+    <part name="parameters" element="ns1:saveCommentResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getCustomerInformationByMobileResponse">
+    <part name="parameters" element="ns1:getCustomerInformationByMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_validateAPMemOrNonAPMemResponse">
+    <part name="parameters" element="ns1:validateAPMemOrNonAPMemResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_isHOBMemberByCardNo">
+    <part name="parameters" element="ns1:isHOBMemberByCardNo" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_resetPasswordResponse">
+    <part name="parameters" element="ns1:resetPasswordResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getPurchaseRecordsResponse">
+    <part name="parameters" element="ns1:getPurchaseRecordsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_activateUser">
+    <part name="parameters" element="ns1:activateUser" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changePassword">
+    <part name="parameters" element="ns1:changePassword" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changePasswordByOldResponse">
+    <part name="parameters" element="ns1:changePasswordByOldResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordSMSLog">
+    <part name="parameters" element="ns1:recordSMSLog" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getPromotionCodesByMobileResponse">
+    <part name="parameters" element="ns1:getPromotionCodesByMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkDrawResponse">
+    <part name="parameters" element="ns1:checkDrawResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateDrawStatusResponse">
+    <part name="parameters" element="ns1:updateDrawStatusResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_removeCustomer">
+    <part name="parameters" element="ns1:removeCustomer" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updatePointsResponse">
+    <part name="parameters" element="ns1:updatePointsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getMobileByUniqueId">
+    <part name="parameters" element="ns1:getMobileByUniqueId" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeMobileResponse">
+    <part name="parameters" element="ns1:changeMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_receivedTrial">
+    <part name="parameters" element="ns1:receivedTrial" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_orderGenerationWechatResponse">
+    <part name="parameters" element="ns1:orderGenerationWechatResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateDrawStatus">
+    <part name="parameters" element="ns1:updateDrawStatus" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeMobile">
+    <part name="parameters" element="ns1:changeMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apGiftOrdersRetrieveResponse">
+    <part name="parameters" element="ns1:apGiftOrdersRetrieveResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveO2ODetails">
+    <part name="parameters" element="ns1:retrieveO2ODetailsRequest" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveAddressesResponse">
+    <part name="parameters" element="ns1:retrieveAddressesResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateInventoryResponse">
+    <part name="parameters" element="ns1:updateInventoryResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerUnBind">
+    <part name="parameters" element="ns1:eCustomerUnBind" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkCustomerByOpenidResponse">
+    <part name="parameters" element="ns1:checkCustomerByOpenidResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getRecordsOfRedemptionWechatResponse">
+    <part name="parameters" element="ns1:getRecordsOfRedemptionWechatResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkDrawByMobile">
+    <part name="parameters" element="ns1:checkDrawByMobile" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_orderGeneration">
+    <part name="parameters" element="ns1:orderGeneration" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_registerSendSmsResponse">
+    <part name="parameters" element="ns1:registerSendSmsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_saveAddress">
+    <part name="parameters" element="ns1:saveAddress" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveAddresses">
+    <part name="parameters" element="ns1:retrieveAddresses" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_isHOBMemberByCardNoResponse">
+    <part name="parameters" element="ns1:isHOBMemberByCardNoResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_applyTrialResponse">
+    <part name="parameters" element="ns1:applyTrialResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendCode">
+    <part name="parameters" element="ns1:sendCode" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_drawSignInResponse">
+    <part name="parameters" element="ns1:drawSignInResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getRecordsOfRedemptionWechat">
+    <part name="parameters" element="ns1:getRecordsOfRedemptionWechat" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_addNewEmemberResponse">
+    <part name="parameters" element="ns1:addNewEmemberBean" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveCustomerPropertiesResponse">
+    <part name="parameters" element="ns1:retrieveCustomerPropertiesResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateWechat">
+    <part name="parameters" element="ns1:wechat" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recognizeMemberResponse">
+    <part name="parameters" element="ns1:recognizeMemberResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveOrder">
+    <part name="parameters" element="ns1:retrieveOrder" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apGiftRetrieveResponse">
+    <part name="parameters" element="ns1:apGiftRetrieveResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveTrialDetailsResponse">
+    <part name="parameters" element="ns1:retrieveTrialDetailsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateAddressResponse">
+    <part name="parameters" element="ns1:updateAddressResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_linkWeibo">
+    <part name="parameters" element="ns1:linkWeibo" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveGiftOrderListWechat">
+    <part name="parameters" element="ns1:retrieveGiftOrderListWechat" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkCustomerMoiveFlag">
+    <part name="parameters" element="ns1:checkCustomerMoiveFlag" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordAddressForGiftResponse">
+    <part name="parameters" element="ns1:recordAddressForGiftResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_eCustomerBound">
+    <part name="parameters" element="ns1:eCustomerBound" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_sendCouponSMSResponse">
+    <part name="parameters" element="ns1:sendCouponSMSResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_valentineSegmentInformationResponse">
+    <part name="parameters" element="ns1:valentineSegmentInformationResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_bindCustomer">
+    <part name="parameters" element="ns1:bindCustomer" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_forgetpassword">
+    <part name="parameters" element="ns1:forgetpassword" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_drawSignIn">
+    <part name="parameters" element="ns1:drawSignIn" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_resetpasswordByEmailResponse">
+    <part name="parameters" element="ns1:resetpasswordByEmailResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_updateAddress">
+    <part name="parameters" element="ns1:updateAddress" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_getPointBalanceResponse">
+    <part name="parameters" element="ns1:getPointBalanceResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkCustomerByMobileResponse">
+    <part name="parameters" element="ns1:checkCustomerByMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkReferralMobileResponse">
+    <part name="parameters" element="ns1:checkReferralMobileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_isHOBMemeberByProfileResponse">
+    <part name="parameters" element="ns1:isHOBMemeberByProfileResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePointBalance">
+    <part name="parameters" element="ns1:retrievePointBalance" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_recordDrawResultResponse">
+    <part name="parameters" element="ns1:recordDrawResultResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_registerWithCodeResponse">
+    <part name="parameters" element="ns1:registerWithCodeResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_mergeCustomerProperties">
+    <part name="parameters" element="ns1:mergeCustomerProperties" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_matchUserResponse">
+    <part name="parameters" element="ns1:matchUserResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_addNewEmember">
+    <part name="parameters" element="ns1:addNewEmember" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveProfileByCardNo">
+    <part name="parameters" element="ns1:retrieveProfileByCardNo" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeMobileSmsResponse">
+    <part name="parameters" element="ns1:changeMobileSmsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_changeEmail">
+    <part name="parameters" element="ns1:changeEmail" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePurchaseDetailsResponse">
+    <part name="parameters" element="ns1:retrievePurchaseDetailsResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_apClubCheck">
+    <part name="parameters" element="ns1:apClubCheck" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrieveGiftOrderListResponse">
+    <part name="parameters" element="ns1:retrieveGiftOrderListResponse" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_checkCustomerByOpenid">
+    <part name="parameters" element="ns1:checkCustomerByOpenid" />
+  </message>
+  <message name="LOPWSAppServiceSOAP_retrievePointDetailsMRMResponse">
+    <part name="parameters" element="ns1:retrievePointDetailsMRMResponse" />
+  </message>
+  <portType name="LOPWSAppServiceSOAP">
+    <operation name="activateUser" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_activateUser" />
+      <output message="ns1:LOPWSAppServiceSOAP_activateUserResponse" />
+    </operation>
+    <operation name="addNewEmember" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_addNewEmember" />
+      <output message="ns1:LOPWSAppServiceSOAP_addNewEmemberResponse" />
+    </operation>
+    <operation name="apClubCheck" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_apClubCheck" />
+      <output message="ns1:LOPWSAppServiceSOAP_apClubCheckResponse" />
+    </operation>
+    <operation name="apGiftOrdersRetrieve" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_apGiftOrdersRetrieve" />
+      <output message="ns1:LOPWSAppServiceSOAP_apGiftOrdersRetrieveResponse" />
+    </operation>
+    <operation name="apGiftRedeem" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_apGiftRedeem" />
+      <output message="ns1:LOPWSAppServiceSOAP_apGiftRedeemResponse" />
+    </operation>
+    <operation name="apGiftRetrieve" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_apGiftRetrieve" />
+      <output message="ns1:LOPWSAppServiceSOAP_apGiftRetrieveResponse" />
+    </operation>
+    <operation name="applyTrial" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_applyTrial" />
+      <output message="ns1:LOPWSAppServiceSOAP_applyTrialResponse" />
+    </operation>
+    <operation name="appointmentRemind" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_appointmentRemind" />
+      <output message="ns1:LOPWSAppServiceSOAP_appointmentRemindResponse" />
+    </operation>
+    <operation name="bindCustomer" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_bindCustomer" />
+      <output message="ns1:LOPWSAppServiceSOAP_bindCustomerResponse" />
+    </operation>
+    <operation name="changeEmail" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_changeEmail" />
+      <output message="ns1:LOPWSAppServiceSOAP_changeEmailResponse" />
+    </operation>
+    <operation name="changeEmailSendValidate" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_changeEmailSendValidate" />
+      <output message="ns1:LOPWSAppServiceSOAP_changeEmailSendValidateResponse" />
+    </operation>
+    <operation name="changeMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_changeMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_changeMobileResponse" />
+    </operation>
+    <operation name="changeMobileSms" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_changeMobileSms" />
+      <output message="ns1:LOPWSAppServiceSOAP_changeMobileSmsResponse" />
+    </operation>
+    <operation name="changePassword" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_changePassword" />
+      <output message="ns1:LOPWSAppServiceSOAP_changePasswordResponse" />
+    </operation>
+    <operation name="changePasswordByOld" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_changePasswordByOld" />
+      <output message="ns1:LOPWSAppServiceSOAP_changePasswordByOldResponse" />
+    </operation>
+    <operation name="checkCustomerByMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkCustomerByMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkCustomerByMobileResponse" />
+    </operation>
+    <operation name="checkCustomerByOpenid" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkCustomerByOpenid" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkCustomerByOpenidResponse" />
+    </operation>
+    <operation name="checkCustomerMoiveFlag" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkCustomerMoiveFlag" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkCustomerMoiveFlagResponse" />
+    </operation>
+    <operation name="checkDraw" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkDraw" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkDrawResponse" />
+    </operation>
+    <operation name="checkDrawByMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkDrawByMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkDrawByMobileResponse" />
+    </operation>
+    <operation name="checkInformationByMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkInformationByMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkInformationByMobileResponse" />
+    </operation>
+    <operation name="checkOfflineUser" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkOfflineUser" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkOfflineUserResponse" />
+    </operation>
+    <operation name="checkReferralMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_checkReferralMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_checkReferralMobileResponse" />
+    </operation>
+    <operation name="completeUserProfile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_completeUserProfile" />
+      <output message="ns1:LOPWSAppServiceSOAP_completeUserProfileResponse" />
+    </operation>
+    <operation name="drawSignIn" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_drawSignIn" />
+      <output message="ns1:LOPWSAppServiceSOAP_drawSignInResponse" />
+    </operation>
+    <operation name="eCustomerBind" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_eCustomerBind" />
+      <output message="ns1:LOPWSAppServiceSOAP_eCustomerBindResponse" />
+    </operation>
+    <operation name="eCustomerBound" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_eCustomerBound" />
+      <output message="ns1:LOPWSAppServiceSOAP_eCustomerBoundResponse" />
+    </operation>
+    <operation name="eCustomerCampaign" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_eCustomerCampaign" />
+      <output message="ns1:LOPWSAppServiceSOAP_eCustomerCampaignResponse" />
+    </operation>
+    <operation name="eCustomerUnBind" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_eCustomerUnBind" />
+      <output message="ns1:LOPWSAppServiceSOAP_eCustomerUnBindResponse" />
+    </operation>
+    <operation name="findOrResetpasswordBySms" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_findOrResetpasswordBySms" />
+      <output message="ns1:LOPWSAppServiceSOAP_findOrResetpasswordBySmsResponse" />
+    </operation>
+    <operation name="forgetpassword" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_forgetpassword" />
+      <output message="ns1:LOPWSAppServiceSOAP_forgetpasswordResponse" />
+    </operation>
+    <operation name="generateValidationCode" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_generateValidationCode" />
+      <output message="ns1:LOPWSAppServiceSOAP_generateValidationCodeResponse" />
+    </operation>
+    <operation name="getATVByMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getATVByMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_getATVByMobileResponse" />
+    </operation>
+    <operation name="getBAInformation" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getBAInformation" />
+      <output message="ns1:LOPWSAppServiceSOAP_getBAInformationResponse" />
+    </operation>
+    <operation name="getCountByMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getCountByMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_getCountByMobileResponse" />
+    </operation>
+    <operation name="getCustomerInformation" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getCustomerInformation" />
+      <output message="ns1:LOPWSAppServiceSOAP_getCustomerInformationResponse" />
+    </operation>
+    <operation name="getCustomerInformationByMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getCustomerInformationByMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_getCustomerInformationByMobileResponse" />
+    </operation>
+    <operation name="getCustomerRedeemFlags" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getCustomerRedeemFlags" />
+      <output message="ns1:LOPWSAppServiceSOAP_getCustomerRedeemFlagsResponse" />
+    </operation>
+    <operation name="getGiftExchangeInfo" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getGiftExchangeInfo" />
+      <output message="ns1:LOPWSAppServiceSOAP_getGiftExchangeInfoResponse" />
+    </operation>
+    <operation name="getGuid" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getGuid" />
+      <output message="ns1:LOPWSAppServiceSOAP_getGuidResponse" />
+    </operation>
+    <operation name="getMobileByUniqueId" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getMobileByUniqueId" />
+      <output message="ns1:LOPWSAppServiceSOAP_getMobileByUniqueIdResponse" />
+    </operation>
+    <operation name="getPointBalance" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getPointBalance" />
+      <output message="ns1:LOPWSAppServiceSOAP_getPointBalanceResponse" />
+    </operation>
+    <operation name="getPromotionCodesByMobile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getPromotionCodesByMobile" />
+      <output message="ns1:LOPWSAppServiceSOAP_getPromotionCodesByMobileResponse" />
+    </operation>
+    <operation name="getPurchaseRecords" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getPurchaseRecords" />
+      <output message="ns1:LOPWSAppServiceSOAP_getPurchaseRecordsResponse" />
+    </operation>
+    <operation name="getRecordsOfRedemption" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getRecordsOfRedemption" />
+      <output message="ns1:LOPWSAppServiceSOAP_getRecordsOfRedemptionResponse" />
+    </operation>
+    <operation name="getRecordsOfRedemptionWechat" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getRecordsOfRedemptionWechat" />
+      <output message="ns1:LOPWSAppServiceSOAP_getRecordsOfRedemptionWechatResponse" />
+    </operation>
+    <operation name="getRecordsOfTrail" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_getRecordsOfTrail" />
+      <output message="ns1:LOPWSAppServiceSOAP_getRecordsOfTrailResponse" />
+    </operation>
+    <operation name="isHOBMemberByCardNo" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_isHOBMemberByCardNo" />
+      <output message="ns1:LOPWSAppServiceSOAP_isHOBMemberByCardNoResponse" />
+    </operation>
+    <operation name="isHOBMemeberByProfile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_isHOBMemeberByProfile" />
+      <output message="ns1:LOPWSAppServiceSOAP_isHOBMemeberByProfileResponse" />
+    </operation>
+    <operation name="linkWeibo" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_linkWeibo" />
+      <output message="ns1:LOPWSAppServiceSOAP_linkWeiboResponse" />
+    </operation>
+    <operation name="matchUser" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_matchUser" />
+      <output message="ns1:LOPWSAppServiceSOAP_matchUserResponse" />
+    </operation>
+    <operation name="mergeCustomerProperties" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_mergeCustomerProperties" />
+      <output message="ns1:LOPWSAppServiceSOAP_mergeCustomerPropertiesResponse" />
+    </operation>
+    <operation name="orderGeneration" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_orderGeneration" />
+      <output message="ns1:LOPWSAppServiceSOAP_orderGenerationResponse" />
+    </operation>
+    <operation name="orderGenerationWechat" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_orderGenerationWechat" />
+      <output message="ns1:LOPWSAppServiceSOAP_orderGenerationWechatResponse" />
+    </operation>
+    <operation name="receivedTrial" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_receivedTrial" />
+      <output message="ns1:LOPWSAppServiceSOAP_receivedTrialResponse" />
+    </operation>
+    <operation name="recognizeMember" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_recognizeMember" />
+      <output message="ns1:LOPWSAppServiceSOAP_recognizeMemberResponse" />
+    </operation>
+    <operation name="recordAddressForGift" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_recordAddressForGift" />
+      <output message="ns1:LOPWSAppServiceSOAP_recordAddressForGiftResponse" />
+    </operation>
+    <operation name="recordDeliveryAddress" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_recordDeliveryAddress" />
+      <output message="ns1:LOPWSAppServiceSOAP_recordDeliveryAddressResponse" />
+    </operation>
+    <operation name="recordDrawResult" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_recordDrawResult" />
+      <output message="ns1:LOPWSAppServiceSOAP_recordDrawResultResponse" />
+    </operation>
+    <operation name="recordSMSLog" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_recordSMSLog" />
+      <output message="ns1:LOPWSAppServiceSOAP_recordSMSLogResponse" />
+    </operation>
+    <operation name="register" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_register" />
+      <output message="ns1:LOPWSAppServiceSOAP_registerResponse" />
+    </operation>
+    <operation name="registerSendSms" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_registerSendSms" />
+      <output message="ns1:LOPWSAppServiceSOAP_registerSendSmsResponse" />
+    </operation>
+    <operation name="registerWithCode" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_registerWithCode" />
+      <output message="ns1:LOPWSAppServiceSOAP_registerWithCodeResponse" />
+    </operation>
+    <operation name="registerWithSource" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_registerWithSource" />
+      <output message="ns1:LOPWSAppServiceSOAP_registerWithSourceResponse" />
+    </operation>
+    <operation name="removeAddress" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_removeAddress" />
+      <output message="ns1:LOPWSAppServiceSOAP_removeAddressResponse" />
+    </operation>
+    <operation name="removeCustomer" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_removeCustomer" />
+      <output message="ns1:LOPWSAppServiceSOAP_removeCustomerResponse" />
+    </operation>
+    <operation name="resetPassword" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_resetPassword" />
+      <output message="ns1:LOPWSAppServiceSOAP_resetPasswordResponse" />
+    </operation>
+    <operation name="resetpasswordByEmail" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_resetpasswordByEmail" />
+      <output message="ns1:LOPWSAppServiceSOAP_resetpasswordByEmailResponse" />
+    </operation>
+    <operation name="retrieveAddresses" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveAddresses" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveAddressesResponse" />
+    </operation>
+    <operation name="retrieveCommentList" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveCommentList" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveCommentListResponse" />
+    </operation>
+    <operation name="retrieveCustomer" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveCustomer" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveCustomerResponse" />
+    </operation>
+    <operation name="retrieveCustomerProperties" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveCustomerProperties" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveCustomerPropertiesResponse" />
+    </operation>
+    <operation name="retrieveGiftOrder" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveGiftOrder" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveGiftOrderResponse" />
+    </operation>
+    <operation name="retrieveGiftOrderList" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveGiftOrderList" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveGiftOrderListResponse" />
+    </operation>
+    <operation name="retrieveGiftOrderListWechat" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveGiftOrderListWechat" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveGiftOrderListWechatResponse" />
+    </operation>
+    <operation name="retrieveMember" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveMember" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveMemberResponse" />
+    </operation>
+    <operation name="retrieveO2ODetails" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveO2ODetails" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveO2ODetailsResponse" />
+    </operation>
+    <operation name="retrieveOrder" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveOrder" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveOrderResponse" />
+    </operation>
+    <operation name="retrieveOrders" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveOrders" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveOrdersResponse" />
+    </operation>
+    <operation name="retrievePointBalance" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrievePointBalance" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrievePointBalanceResponse" />
+    </operation>
+    <operation name="retrievePointDetails" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrievePointDetails" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrievePointDetailsResponse" />
+    </operation>
+    <operation name="retrievePointDetailsMRM" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrievePointDetailsMRM" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrievePointDetailsMRMResponse" />
+    </operation>
+    <operation name="retrievePoints" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrievePoints" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrievePointsResponse" />
+    </operation>
+    <operation name="retrieveProfile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveProfile" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveProfileResponse" />
+    </operation>
+    <operation name="retrieveProfileByCardNo" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveProfileByCardNo" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveProfileByCardNoResponse" />
+    </operation>
+    <operation name="retrievePurchaseDetails" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrievePurchaseDetails" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrievePurchaseDetailsResponse" />
+    </operation>
+    <operation name="retrieveTrialDetails" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_retrieveTrialDetails" />
+      <output message="ns1:LOPWSAppServiceSOAP_retrieveTrialDetailsResponse" />
+    </operation>
+    <operation name="rvSignIn" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_rvSignIn" />
+      <output message="ns1:LOPWSAppServiceSOAP_rvSignInResponse" />
+    </operation>
+    <operation name="saveAddress" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_saveAddress" />
+      <output message="ns1:LOPWSAppServiceSOAP_saveAddressResponse" />
+    </operation>
+    <operation name="saveComment" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_saveComment" />
+      <output message="ns1:LOPWSAppServiceSOAP_saveCommentResponse" />
+      <fault name="Exception" message="ns1:Exception" />
+    </operation>
+    <operation name="sendCode" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_sendCode" />
+      <output message="ns1:LOPWSAppServiceSOAP_sendCodeResponse" />
+    </operation>
+    <operation name="sendCouponSMS" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_sendCouponSMS" />
+      <output message="ns1:LOPWSAppServiceSOAP_sendCouponSMSResponse" />
+    </operation>
+    <operation name="sendMovieCodeOrAddPoints" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_sendMovieCodeOrAddPoints" />
+      <output message="ns1:LOPWSAppServiceSOAP_sendMovieCodeOrAddPointsResponse" />
+    </operation>
+    <operation name="sendVerificationCode" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_sendVerificationCode" />
+      <output message="ns1:LOPWSAppServiceSOAP_sendVerificationCodeResponse" />
+    </operation>
+    <operation name="signIn" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_signIn" />
+      <output message="ns1:LOPWSAppServiceSOAP_signInResponse" />
+    </operation>
+    <operation name="subscribeNewsletter" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_subscribeNewsletter" />
+      <output message="ns1:LOPWSAppServiceSOAP_subscribeNewsletterResponse" />
+    </operation>
+    <operation name="unBindCustomer" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_unBindCustomer" />
+      <output message="ns1:LOPWSAppServiceSOAP_unBindCustomerResponse" />
+    </operation>
+    <operation name="updateAddress" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updateAddress" />
+      <output message="ns1:LOPWSAppServiceSOAP_updateAddressResponse" />
+    </operation>
+    <operation name="updateDrawStatus" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updateDrawStatus" />
+      <output message="ns1:LOPWSAppServiceSOAP_updateDrawStatusResponse" />
+    </operation>
+    <operation name="updateInventory" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updateInventory" />
+      <output message="ns1:LOPWSAppServiceSOAP_updateInventoryResponse" />
+    </operation>
+    <operation name="updatePoints" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updatePoints" />
+      <output message="ns1:LOPWSAppServiceSOAP_updatePointsResponse" />
+    </operation>
+    <operation name="updateProfile" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updateProfile" />
+      <output message="ns1:LOPWSAppServiceSOAP_updateProfileResponse" />
+    </operation>
+    <operation name="updateQQWeibo" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updateQQWeibo" />
+      <output message="ns1:LOPWSAppServiceSOAP_updateQQWeiboResponse" />
+    </operation>
+    <operation name="updateSinaWeibo" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updateSinaWeibo" />
+      <output message="ns1:LOPWSAppServiceSOAP_updateSinaWeiboResponse" />
+    </operation>
+    <operation name="updateWechat" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_updateWechat" />
+      <output message="ns1:LOPWSAppServiceSOAP_updateWechatResponse" />
+    </operation>
+    <operation name="valentineSegmentInformation" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_valentineSegmentInformation" />
+      <output message="ns1:LOPWSAppServiceSOAP_valentineSegmentInformationResponse" />
+    </operation>
+    <operation name="validateAPMemOrNonAPMem" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_validateAPMemOrNonAPMem" />
+      <output message="ns1:LOPWSAppServiceSOAP_validateAPMemOrNonAPMemResponse" />
+    </operation>
+    <operation name="validateMemOrNonMem" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_validateMemOrNonMem" />
+      <output message="ns1:LOPWSAppServiceSOAP_validateMemOrNonMemResponse" />
+    </operation>
+    <operation name="validateMemOrProspectsSendSms" parameterOrder="parameters">
+      <input message="ns1:LOPWSAppServiceSOAP_validateMemOrProspectsSendSms" />
+      <output message="ns1:LOPWSAppServiceSOAP_validateMemOrProspectsSendSmsResponse" />
+    </operation>
+  </portType>
+  <binding name="LOPWSAppServiceSOAPBinding" type="ns1:LOPWSAppServiceSOAP">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="activateUser">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/activateUser" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="addNewEmember">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/addNewEmember" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="apClubCheck">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/apClubCheck" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="apGiftOrdersRetrieve">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/apGiftOrdersRetrieve" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="apGiftRedeem">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/apGiftRedeem" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="apGiftRetrieve">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/apGiftRetrieve" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="applyTrial">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/applyTrial" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="appointmentRemind">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/appointmentRemind" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="bindCustomer">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/binding" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="changeEmail">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/changeEmail" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="changeEmailSendValidate">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/changeEmailSendValidate" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="changeMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/changeMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="changeMobileSms">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/changeMobileSms" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="changePassword">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/changePassword" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="changePasswordByOld">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/changePasswordByOld" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkCustomerByMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkCustomerByMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkCustomerByOpenid">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkCustomerByOpenid" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkCustomerMoiveFlag">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkCustomerMoiveFlag" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkDraw">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkDraw" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkDrawByMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkDrawByMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkInformationByMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkInformationByMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkOfflineUser">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkOfflineUser" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkReferralMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/checkReferralMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="completeUserProfile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/completeUserProfile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="drawSignIn">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/drawSignIn" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eCustomerBind">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/eCustomerBind" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eCustomerBound">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/eCustomerBound" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eCustomerCampaign">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/eCustomerBind" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eCustomerUnBind">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/eCustomerUnBind" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findOrResetpasswordBySms">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/findOrResetpasswordBySms" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="forgetpassword">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/forgetpassword" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="generateValidationCode">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/generateValidationCode" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getATVByMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getATVByMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getBAInformation">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getBAInformation" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCountByMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getCountByMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCustomerInformation">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getCustomerInformation" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCustomerInformationByMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getCustomoerInformationByMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getCustomerRedeemFlags">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getCustomerRedeemFlags" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getGiftExchangeInfo">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getGiftExchangeInfo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getGuid">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getGuid" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getMobileByUniqueId">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getMobileByUniqueId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPointBalance">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getPointBalance" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPromotionCodesByMobile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getPromotionCodesByMobile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPurchaseRecords">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getPurchaseRecords" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getRecordsOfRedemption">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getRecordsOfRedemption" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getRecordsOfRedemptionWechat">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getRecordsOfRedemptionWechat" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getRecordsOfTrail">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/getRecordsOfTrail" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="isHOBMemberByCardNo">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/isHOBMemberByCardNo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="isHOBMemeberByProfile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/isHOBMemeberByProfile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="linkWeibo">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/linkWeibo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="matchUser">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/matchUser" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="mergeCustomerProperties">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/mergeCustomerProperties" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="orderGeneration">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/orderGeneration" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="orderGenerationWechat">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/orderGenerationWechat" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="receivedTrial">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/receivedTrial" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="recognizeMember">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/recognizeMember" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="recordAddressForGift">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/recordAddressForGift" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="recordDeliveryAddress">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/recordDeliveryAddress" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="recordDrawResult">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/recordDrawResult" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="recordSMSLog">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/recordSMSLog" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="register">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/register" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registerSendSms">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/registerSendSms" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registerWithCode">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/registerWithCode" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="registerWithSource">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/registerWithSource" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="removeAddress">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/removeAddress" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="removeCustomer">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/removeCustomer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="resetPassword">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/resetPassword" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="resetpasswordByEmail">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/resetpasswordByEmail" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveAddresses">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveAddresses" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCommentList">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveCommentList" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCustomer">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveCustomer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveCustomerProperties">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveCustomerProperties" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveGiftOrder">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveGiftOrder" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveGiftOrderList">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveGiftOrderList" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveGiftOrderListWechat">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveGiftOrderListWechat" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveMember">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveMember" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveO2ODetails">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveO2ODetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveOrder">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveOrder" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveOrders">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveOrders" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrievePointBalance">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrievePointBalance" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrievePointDetails">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrievePointDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrievePointDetailsMRM">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrievePointDetailsMRM" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrievePoints">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrievePoints" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveProfile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveProfile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveProfileByCardNo">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveProfileByCardNo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrievePurchaseDetails">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrievePurchaseDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="retrieveTrialDetails">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/retrieveTrialDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="rvSignIn">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/rvSignIn" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveAddress">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/saveAddress" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveComment">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/saveComment" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="sendCode">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/sendCode" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sendCouponSMS">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/sendCouponSMS" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sendMovieCodeOrAddPoints">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/sendMovieCodeOrAddPoints" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="sendVerificationCode">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/sendVerificationCode" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="signIn">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/signIn" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="subscribeNewsletter">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/subscribeNewsletter" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="unBindCustomer">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/unBinding" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateAddress">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updateAddress" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateDrawStatus">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updateDrawStatus" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateInventory">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updateInventory" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updatePoints">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updatePoints" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateProfile">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updateProfile" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateQQWeibo">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updateQQWeibo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateSinaWeibo">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updateSinaWeibo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="updateWechat">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/updateWechat" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="valentineSegmentInformation">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/valentineSegmentInformation" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validateAPMemOrNonAPMem">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/validateAPMemOrNonAPMem" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validateMemOrNonMem">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/validateMemOrNonMem" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="validateMemOrProspectsSendSms">
+      <soap:operation soapAction="http://ws.acxiom.com.cn/lop/wsappservice/validateMemOrProspectsSendSms" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+</definitions>

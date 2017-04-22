@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wsappservice.lop.ws.acxiom.com.cn/" xmlns:ns1="http://ws.acxiom.com.cn/lop/wsappservice/" name="LOPWSAppServiceSOAP" targetNamespace="http://wsappservice.lop.ws.acxiom.com.cn/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://ws.acxiom.com.cn/lop/wsappservice/" location="https://wsuat.acxiom.com.cn/lop/wsappservice/LOPWSAppServiceSOAP?wsdl&amp;resource=LOPWSAppServiceSOAP_PortType19468.wsdl" />
+  <types />
+  <service name="LOPWSAppServiceSOAP">
+    <port name="LOPWSAppServiceSOAPImplPort" binding="ns1:LOPWSAppServiceSOAPBinding">
+      <soap:address location="https://wsuat.acxiom.com.cn/lop/wsappservice/LOPWSAppServiceSOAP" />
+    </port>
+  </service>
+</definitions>

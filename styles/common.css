@@ -1,0 +1,310 @@
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.abs-box {
+	position: absolute;
+}
+.alarm-box {
+    left: 1.5rem;
+    top: 0.9rem;
+    z-index: 59;
+    width: 2.5rem;
+    height: 1.5rem;
+    background-size: 2.5rem 1.5rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.page-box {
+    width: 5.68rem;
+    height: 3.2rem;
+}
+
+#page0 {z-index: 1;}
+#page1 {z-index: 10;}
+#page2 {z-index: 30;}
+#page3 {z-index: 50;}
+#page4 {z-index: 70;}
+#page5 {z-index: 90;}
+
+#page0 {
+	width: 5.68rem;
+	height: 3.2rem;
+	background-image: url('../images/bg.jpg');
+	background-size: 5.68rem 3.2rem;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/** page1 */
+#page1 {
+	background-image: url('../images/p1_bg.jpg');
+	background-size: 5.68rem 3.2rem;
+	background-position: center center;
+	background-repeat: no-repeat;	
+}
+
+#page1TopBox {
+	width: 1.01rem;
+	height: 0.315rem;
+	top: 0.1rem;
+	right: 0.2rem;
+	background-position: center center;
+	background-image: url('../images/p1_btn_rule.png');
+	background-size: contain;
+}
+
+#page1LeftBox {
+	width: 2.345rem;
+	height: 1.64rem;
+	top: 0.98rem;
+	left: 0.4rem;
+	background-position: center center;
+	background-image: url('../images/p1_pic.png');
+	background-size: contain;
+}
+#page1RightBox {
+	width: 1.51rem;
+	height: 1.475rem;
+	top: 1rem;
+	right: 0.4rem;
+	background-position: center center;
+	background-image: url('../images/p1_product.png');
+	background-size: contain;
+}
+#page1BottomBox {
+	width: 1.885rem;
+	height: 0.345rem;
+	left: 1.8rem;
+	bottom: 0.15rem;
+	background-position: center center;
+	background-image: url('../images/p1_btn.png');
+	background-size: contain;
+}
+
+
+/** page2 **/
+#page2PopBox {
+	width: 4.49rem;
+	height: 2.59rem;
+	z-index: 31;
+	top: 0.3rem;
+	left: 0.59rem;
+	background-position: center center;
+	background-image: url('../images/p2_popup.png');
+	background-size: contain;
+}
+#page2TextBox {
+	width: 3.895rem;
+	height: 1.415rem;
+	z-index: 33;
+	top: 0.7rem;
+	left: 0.9rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+#page2TextBox > img {
+	width: 3.895rem;
+}
+#page2ArrowBox {
+	width: 0.6rem;
+	height: 0.2rem;
+	z-index: 35;
+	top: 2.15rem;
+	left: 2.5rem;
+	background-position: center center;
+	background-size: 0.13rem 0.125rem;
+	background-image: url('../images/p2_arrow.png');
+	background-repeat: no-repeat;
+}
+#page2BtnBox {
+	width: 0.805rem;
+	height: 0.28rem;
+	z-index: 36;
+	top: 2.45rem;
+	left: 2.38rem;
+	background-position: center center;
+	background-image: url('../images/p2_btn.png');
+	background-size: contain;
+}
+
+
+
+/** page3 **/
+#page3PopBox {
+	width: 4.32rem;
+	height: 2.55rem;
+	z-index: 51;
+	top: 0.33rem;
+	left: 0.7rem;
+	
+	background-position: center center;
+	background-image: url('../images/p3_popup.png');
+	background-size: contain;
+	
+}
+#page3SmsBox {
+	width: 0.6rem;
+	height: 0.18rem;
+	z-index: 55;
+	top: 0.92rem;
+	left: 3.8rem;
+	
+	background-position: center center;
+	background-image: url('../images/P3_btn_valid.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+
+}
+#page3ArrowBox1 {
+	width: 0.13rem;
+	height: 0.125rem;
+	z-index: 55;
+	top: 1.45rem;
+	left: 4.1rem;
+	background-position: center center;
+	background-image: url('../images/p3_arrow.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#page3ArrowBox2 {
+	width: 0.13rem;
+	height: 0.125rem;
+	z-index: 55;
+	top: 1.67rem;
+	left: 4.1rem;
+	background-position: center center;
+	background-image: url('../images/p3_arrow.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#page3BtnBox {
+	width: 1.205rem;
+	height: 0.28rem;
+	z-index: 55;
+	top: 2.46rem;
+	left: 2.3rem;
+	
+	background-position: center center;
+	background-image: url('../images/P3_btn_submit.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+
+}
+
+
+.input-box {
+    height: 0.2rem;
+    line-height: 0.2rem;
+    font-size: 0.14rem;
+    color: #fff;
+}
+.input-box > span {
+    margin: 0;
+    padding: 0;
+}
+.input-box input {
+	width: 100%;
+	height: 0.2rem;
+	line-height: 0.2rem;
+	font-size: 0.14rem;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	background-color: transparent;
+}
+
+#inputNameBox {
+	width: 2.63rem;
+	height: 0.20rem;
+	top: 0.67rem;
+	left: 1.78rem;
+	z-index: 58;
+}
+
+#inputPhoneBox {
+	width: 1.8rem;
+	height: 0.20rem;
+	top: 0.92rem;
+	left: 1.94rem;
+	z-index: 58;
+}
+#inputSmsBox {
+	width: 2.1rem;
+	height: 0.20rem;
+	top: 1.15rem;
+	left: 2.3rem;
+	z-index: 58;
+}
+#inputAddressBox {
+	width: 2.6rem;
+	height: 0.20rem;
+	top: 1.83rem;
+	left: 1.8rem;
+	z-index: 58;
+}
+#inputPostcodeBox {
+	width: 2.7rem;
+	height: 0.20rem;
+	top: 2.1rem;
+	left: 1.7rem;
+	z-index: 58;
+}
+#inputProvinceBox,
+#province {
+	width: 2.6rem;
+	height: 0.20rem;
+	top: 1.39rem;
+	left: 1.8rem;
+	z-index: 54;
+}
+#inputCityBox,
+#city {
+	width: 2.6rem;
+	height: 0.20rem;
+	top: 1.61rem;
+	left: 1.8rem;
+	z-index: 54;
+}
+#province,
+#city {
+	z-index: 55;
+	opacity: 0;
+}
+
+
+
+/** page4 **/
+#page4 {
+	background-image: url('../images/p4_bg.jpg');
+	background-size: 5.68rem 3.2rem;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/** page5 **/
+#page5 {
+	background-image: url('../images/p5_bg.jpg');
+	background-size: 5.68rem 3.2rem;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+
+#page6Alarm {
+    background-image: url('../images/alarm1.png');
+}
+
+#page7Alarm {
+    background-image: url('../images/alarm2.png');
+}
