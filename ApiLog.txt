@@ -1,0 +1,6 @@
+﻿下载“https://wsuat.acxiom.com.cn/lop/wsappservice/LOPWSAppServiceSOAP?wsdl/$metadata”时出错。
+未能解析此远程名称: 'wsuat.acxiom.com.cn'
+元数据包含无法解析的引用:“https://wsuat.acxiom.com.cn/lop/wsappservice/LOPWSAppServiceSOAP?wsdl”。
+响应消息的内容类型 text/xml;charset=UTF-8 与绑定(application/soap+xml; charset=utf-8)的内容类型不匹配。如果使用自定义编码器，请确保正确实现 IsContentTypeSupported 方法。响应的前 402 个字节为:“<env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><env:Header></env:Header><env:Body><env:Fault xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><faultcode>env:Client</faultcode><faultstring>Endpoint {http://wsappservice.lop.ws.acxiom.com.cn/}LOPWSAppServiceSOAPImplPort does not contain operation meta data for empty soap body</faultstring></env:Fault></env:Body></env:Envelope>”。
+远程服务器返回错误: (500) 内部服务器错误。
+
